@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '../LookFor/sass/style.sass'
+import FooterPart from '../FooterPart/index'
 
-import logoBeans from '../LookFor/logo/Beans_logo.svg'
-import Black from '../LookFor/logo/Logo_black.svg'
+
 import logo from '../LookFor/logo/Logo.svg'
 import logoBlack from '../LookFor/logo/Beans_logo_dark.svg'
 import coffeeItem from '../LookFor/img/coffee_item.jpg'
 
-import {Container, Row, Col} from 'reactstrap';
-import {ListGroup, ListGroupItem} from 'reactstrap';
+import {Col} from 'reactstrap';
+
 
 
 const ItemPage = () => {
@@ -65,28 +65,7 @@ const ItemPage = () => {
              </div>
          </div>
      </section>
-     <footer>
-         <div className="container">
-             <div className="row">
-                 <Col lg={{size: 5, offset: 4}}>
-                     <ul className="footer">
-                         <li className="footer__item">
-                             <Link to="/">
-                                 <img src={Black} alt="logo"/>
-                             </Link>
-                         </li>
-                         <li className="footer__item">
-                             <Link to="/OurCoffee" >Our coffee</Link>
-                         </li>
-                         <li className="footer__item">
-                             <Link to="/ItemPage">For your pleasure</Link>
-                         </li>
-                     </ul>
-                 </Col>
-             </div>
-             <img className="beanslogo" src={logoBlack} alt="Beans logo"/>
-         </div>
-     </footer>
+    <FooterPart/>
      </>
  )
 };

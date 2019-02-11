@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '../LookFor/sass/style.sass'
+import FooterPart from '../FooterPart/index'
 
 
 import logoBlack from '../LookFor/logo/Beans_logo_dark.svg';
-import logoBeans from '../LookFor/logo/Logo_black.svg';
+
 import logo from '../LookFor/logo/Logo.svg'
 import beans from '../LookFor/logo/Beans_logo.svg'
 import MyData from '../../db.json'
 
 import {Container, Row, Col} from 'reactstrap';
-import {ListGroup, ListGroupItem} from 'reactstrap';
+
 
 
 export default class MainPage extends Component {
@@ -18,10 +19,6 @@ export default class MainPage extends Component {
         super();
         this.state = {
             data: [],
-            term: '',
-            filter: 'all',
-
-
         };
     }
 
@@ -139,28 +136,10 @@ export default class MainPage extends Component {
                     </Row>
                 </Container>
             </section>
-            <footer>
-                <div className="container">
-                    <div className="row">
-                        <Col lg={{size: 5, offset: 4}}>
-                            <ul className="footer">
-                                <li className="footer__item">
-                                    <Link to="/">
-                                        <img src={logoBeans} alt="logo"/>
-                                    </Link>
-                                </li>
-                                <li className="footer__item">
-                                    <Link to="/OurCoffee" >Our coffee</Link>
-                                </li>
-                                <li className="footer__item">
-                                    <Link to="/ItemPage">For your pleasure</Link>
-                                </li>
-                            </ul>
-                        </Col>
-                    </div>
-                    <img className="beanslogo" src={logoBlack} alt="Beans logo"/>
-                </div>
-            </footer>
+
+
+            <FooterPart/>
+
             </>
         )
     }
