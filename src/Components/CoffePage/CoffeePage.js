@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-
+import {Link} from 'react-router-dom';
 import '../LookFor/sass/style.sass'
+
 import logoBlack from './img/Beans_logo_dark.svg'
 import logoBeans from './img/Logo_black.svg'
 import girl from './img/coffee_girl.jpg'
 import logo from './img/Logo.svg'
+
 import {Container, Row, Col} from 'reactstrap';
 import {ListGroup, ListGroupItem} from 'reactstrap';
 
@@ -17,19 +19,19 @@ const CoffeePage = () => {
                 <div className="row">
                     <Col lg="6">
                         <header>
-                            <ListGroup className="header">
-                                <ListGroupItem className="header__item">
-                                    <a href="#">
+                            <ul className="header">
+                                <li className="header__item">
+                                    <Link to="/">
                                         <img src={logo} alt="logo"/>
-                                    </a>
-                                </ListGroupItem>
-                                <ListGroupItem className="header__item">
-                                    <a href="#">Our coffee</a>
-                                </ListGroupItem>
-                                <ListGroupItem className="header__item">
-                                    <a href="#">For your pleasure</a>
-                                </ListGroupItem>
-                            </ListGroup>
+                                    </Link>
+                                </li>
+                                <li className="header__item">
+                                    <Link to='/OurCoffee'>Our coffee</Link>
+                                </li>
+                                <li className="header__item">
+                                    <Link to="/ItemPage">For your pleasure</Link>
+                                </li>
+                            </ul>
                         </header>
                     </Col>
                 </div>
@@ -57,15 +59,15 @@ const CoffeePage = () => {
                     </div>
                 </Row>
                 <div className="line"></div>
-                <div className="row">
-                    <div className="col-lg-4 offset-2">
+                <Row>
+                    <Col lg={{size: 4, offset:2}}>
                         <form action="#" className="shop__search">
                             <label className="shop__search-label" htmlFor="filter">Looking for</label>
                             <input id="filter" type="text" placeholder="start typing here..."
                                    className="shop__search-input"/>
                         </form>
-                    </div>
-                    <div className="col-lg-4">
+                    </Col>
+                    <Col lg="4">
                         <div className="shop__filter">
                             <div className="shop__filter-label">
                                 Or filter
@@ -76,10 +78,10 @@ const CoffeePage = () => {
                                 <button className="shop__filter-btn">Columbia</button>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-lg-10 offset-lg-1">
+                    </Col>
+                </Row>
+                <Row >
+                    <Col lg={{size:11,offset:1}} >
                         <div className="shop__wrapper">
                             <div className="shop__item">
                                 <img
@@ -140,31 +142,31 @@ const CoffeePage = () => {
                                 <div className="shop__item-price">10.73$</div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </Col>
+                </Row>
             </Container>
         </section>
         <footer>
-            <Container>
-                <Row>
+            <div className="container">
+                <div className="row">
                     <Col lg={{size: 5, offset: 4}}>
-                        <ListGroup className="footer">
-                            <ListGroupItem className="footer__item">
-                                <a href="#">
-                                    <img src={logoBlack} alt="logo"/>
-                                </a>
-                            </ListGroupItem>
-                            <ListGroupItem className="footer__item">
-                                <a href="#">Our coffee</a>
-                            </ListGroupItem>
-                            <ListGroupItem className="footer__item">
-                                <a href="#">For your pleasure</a>
-                            </ListGroupItem>
-                        </ListGroup>
+                        <ul className="footer">
+                            <li className="footer__item">
+                                <Link to="/">
+                                    <img src={logoBeans} alt="logo"/>
+                                </Link>
+                            </li>
+                            <li className="footer__item">
+                                <Link to="/OurCoffee" >Our coffee</Link>
+                            </li>
+                            <li className="footer__item">
+                                <Link to="/ItemPage">For your pleasure</Link>
+                            </li>
+                        </ul>
                     </Col>
-                </Row>
-                <img className="beanslogo" src={logoBeans} alt="Beans logo"/>
-            </Container>
+                </div>
+                <img className="beanslogo" src={logoBlack} alt="Beans logo"/>
+            </div>
         </footer>
         </>
     )

@@ -1,31 +1,32 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import CoffeePage from '../CoffePage/index'
-import MainPage from  '../MainPage/MainPage'
-
-import GotItem from '../Services/gotCoffee'
+import MainPage from '../MainPage/MainPage'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import ItemPage from '../ItemPage/index'
+import Container from "reactstrap/es/Container";
 
 
 export default class App extends Component {
     constructor() {
         super();
-        this.state = {
-
-        };
+        this.state = {};
     }
 
-
     render() {
-
-
-
-
         return (
-            <MainPage/>
-            /*<CoffeePage/>*/
+
+            <Router>
+
+
+                <Container>
+                    <Route exact path='/' component={MainPage}/>
+                    <Route path='/OurCoffee' component={CoffeePage}/>
+                    <Route path='/ItemPage' component={ItemPage}/>
+                </Container>
+
+            </Router>
 
         )
     }
-
-
 };

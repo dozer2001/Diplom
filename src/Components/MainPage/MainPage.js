@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import '../LookFor/sass/style.sass'
+
+
 import logoBlack from '../LookFor/logo/Beans_logo_dark.svg';
 import logoBeans from '../LookFor/logo/Logo_black.svg';
 import logo from '../LookFor/logo/Logo.svg'
@@ -50,15 +53,15 @@ export default class MainPage extends Component {
                             <header>
                                 <ul className="header">
                                     <li className="header__item">
-                                        <a href="#">
+                                        <Link to="/">
                                             <img src={logo} alt="logo"/>
-                                        </a>
+                                        </Link>
                                     </li>
                                     <li className="header__item">
-                                        <a href="#">Our coffee</a>
+                                        <Link to="/OurCoffee">Our coffee</Link>
                                     </li>
                                     <li className="header__item">
-                                        <a href="#">For your pleasure</a>
+                                        <Link to="/ItemPage">For your pleasure</Link>
                                     </li>
                                 </ul>
                             </header>
@@ -70,7 +73,7 @@ export default class MainPage extends Component {
                             <img className="beanslogo" src={beans} alt="Beans logo"/>
                             <div className="preview__subtitle">We makes every day full of energy and taste</div>
                             <div className="preview__subtitle">Want to try our beans?</div>
-                            <a href="#" className="preview__btn">More</a>
+                            <Link to="/OurCoffee" className="preview__btn">More</Link>
                         </Col>
                     </Row>
                 </Container>
@@ -142,15 +145,15 @@ export default class MainPage extends Component {
                         <Col lg={{size: 5, offset: 4}}>
                             <ul className="footer">
                                 <li className="footer__item">
-                                    <a href="#">
+                                    <Link to="/">
                                         <img src={logoBeans} alt="logo"/>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="footer__item">
-                                    <a href="#">Our coffee</a>
+                                    <Link to="/OurCoffee" >Our coffee</Link>
                                 </li>
                                 <li className="footer__item">
-                                    <a href="#">For your pleasure</a>
+                                    <Link to="/ItemPage">For your pleasure</Link>
                                 </li>
                             </ul>
                         </Col>
