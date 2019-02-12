@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '../LookFor/sass/style.sass'
 import FooterPart from '../FooterPart/index'
+import GotItem from '../Services/gotCoffee'
 
 
 import logoBlack from '../LookFor/logo/Beans_logo_dark.svg';
@@ -15,28 +16,16 @@ import {Container, Row, Col} from 'reactstrap';
 
 
 export default class MainPage extends Component {
-    constructor() {
-        super();
+    DataMy = new GotItem();
+    constructor(props) {
+        super(props);
         this.state = {
-            data: [],
+            data: this.DataMy.getAllbestsellers(),
         };
     }
 
     componentWillMount() {
 
-        this.setState(() => {
-            const p = MyData;
-            const b = p.bestsellers;
-            let newArr = [];
-            for (let key in b) {
-                const item = b[key];
-                newArr.push(item)
-
-            }
-            return {
-                data: newArr
-            }
-        })
     }
 
     render() {
