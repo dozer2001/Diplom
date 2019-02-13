@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import CoffeePage from '../CoffePage/index'
 import MainPage from '../MainPage/MainPage'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import ItemPage from '../ItemPage/index'
-import Container from "reactstrap/es/Container";
+
 
 
 export default class App extends Component {

@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+
 import MyData from  '../../db.json'
 import idGenerator from 'react-id-generator';
+
 export default class GotItem {
     constructor() {
         this.apiBase = MyData;

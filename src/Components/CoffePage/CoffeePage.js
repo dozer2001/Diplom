@@ -4,6 +4,8 @@ import '../LookFor/sass/style.sass'
 import FooterPart from '../FooterPart/index'
 import GotItem from '../Services/gotCoffee'
 import CoffeeItem from '../CoffeItem/CoffeeItem'
+import SearchPanel from '../SearchComponent/index'
+import PostStatusFilter from '../FilterComponent/FilterComponent'
 
 import logoBlack from './img/Beans_logo_dark.svg'
 import girl from './img/coffee_girl.jpg'
@@ -19,7 +21,19 @@ export default class CoffeePage extends Component {
         super(props);
         this.state = {
             data: this.DataMy.getAllbestsellers(),
+            term:'',
+            filter:''
         };
+        this.onUpdateSearch = this.onUpdateSearch.bind(this);
+        this.onFilterSelect = this.onFilterSelect.bind(this);
+    }
+    onUpdateSearch(term) {
+        this.setState({term});
+
+    }
+    onFilterSelect(filter){
+        this.setState({filter});
+
     }
 
     render() {
@@ -73,23 +87,20 @@ export default class CoffeePage extends Component {
                     </Row>
                     <div className="line"></div>
                     <Row>
-                        <Col lg={{size: 4, offset: 2}}>
-                            <form action="#" className="shop__search">
-                                <label className="shop__search-label" htmlFor="filter">Looking for</label>
-                                <input id="filter" type="text" placeholder="start typing here..."
-                                       className="shop__search-input"/>
-                            </form>
-                        </Col>
+
+                       {/*Инпут с поиском*/}
+                            <SearchPanel  onUpdateSearch={this.onUpdateSearch}/>
+
                         <Col lg="4">
                             <div className="shop__filter">
                                 <div className="shop__filter-label">
                                     Or filter
                                 </div>
-                                <div className="shop__filter-group">
-                                    <button className="shop__filter-btn">Brazil</button>
-                                    <button className="shop__filter-btn">Kenya</button>
-                                    <button className="shop__filter-btn">Columbia</button>
-                                </div>
+
+                                {/*Формируются кнопки и фильмтруются*/}
+                                <PostStatusFilter
+                                    onFilterSelect={this.onFilterSelect}/>
+
                             </div>
                         </Col>
                     </Row>
@@ -97,7 +108,11 @@ export default class CoffeePage extends Component {
                         <Col lg={{size: 11, offset: 1}}>
                             <div className="shop__wrapper">
 
-                                <CoffeeItem/>
+                                 {/*Формируется Итеймы с товаром*/}
+                                <CoffeeItem
+                                    onUpdateSearch={this.state.term}
+                                    onFilterSelect={this.state.filter}
+                                />
 
                             </div>
                         </Col>

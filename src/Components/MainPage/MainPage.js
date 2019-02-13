@@ -9,7 +9,7 @@ import logoBlack from '../LookFor/logo/Beans_logo_dark.svg';
 
 import logo from '../LookFor/logo/Logo.svg'
 import beans from '../LookFor/logo/Beans_logo.svg'
-import MyData from '../../db.json'
+
 
 import {Container, Row, Col} from 'reactstrap';
 
@@ -24,9 +24,7 @@ export default class MainPage extends Component {
         };
     }
 
-    componentWillMount() {
 
-    }
 
     render() {
 
