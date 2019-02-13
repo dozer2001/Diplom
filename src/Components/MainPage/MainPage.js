@@ -92,6 +92,7 @@ export default class MainPage extends Component {
                         <Col lg={{size: 10, offset: 1}}>
                             <div className="best__wrapper">
                                 <div className="best__item">
+                                    <Link to="/ItemPage">
                                     <img
                                         src={this.state.data[0].url}
                                         alt="coffee"/>
@@ -99,8 +100,10 @@ export default class MainPage extends Component {
                                         ${this.state.data[0].name}
                                     </div>
                                     <div className="best__item-price">{this.state.data[0].price}</div>
+                                    </Link>
                                 </div>
                                 <div className="best__item">
+                                    <Link to="/ItemPage">
                                     <img
                                         src={this.state.data[1].url}
                                         alt="coffee"/>
@@ -108,8 +111,10 @@ export default class MainPage extends Component {
                                         ${this.state.data[1].name}
                                     </div>
                                     <div className="best__item-price">{this.state.data[1].price}</div>
+                                    </Link>
                                 </div>
                                 <div className="best__item">
+                                    <Link to="/ItemPage">
                                     <img
                                         src={this.state.data[2].url}
                                         alt="coffee"/>
@@ -117,6 +122,7 @@ export default class MainPage extends Component {
                                         {this.state.data[2].name}
                                     </div>
                                     <div className="best__item-price">{this.state.data[2].price}</div>
+                                    </Link>
                                 </div>
                             </div>
                         </Col>

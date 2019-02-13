@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import GotItem from '../Services/gotCoffee'
-
+import {Link} from 'react-router-dom';
 
 
 
@@ -46,6 +46,7 @@ export default class CoffeePage extends Component {
             const id = i;
             return (
                 <div className="shop__item" key={id}>
+                    <Link to="/ItemPage">
                     <img
                         src={url}
                         alt="coffee"/>
@@ -54,6 +55,7 @@ export default class CoffeePage extends Component {
                     </div>
                     <div className="shop__item-country">{country}</div>
                     <div className="shop__item-price">{price}</div>
+                    </Link>
                 </div>
             )
         })
