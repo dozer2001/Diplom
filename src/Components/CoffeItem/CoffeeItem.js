@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import GotItem from '../Services/gotCoffee'
 import {Link} from 'react-router-dom';
-
-
+import '../LookFor/sass/style.sass'
+import Spinner from '../Spinner'
+import ErrorMessege from '../errorMessege';
 
 export default class CoffeePage extends Component {
     DataMy = new GotItem();
@@ -12,21 +13,34 @@ export default class CoffeePage extends Component {
         this.state = {
             data: this.DataMy.getAllCoffee(),
             term:'',
-            filter:''
+            filter:'',
+            loading: true,
+            error: false
 
         };
     }
-
+componentDidMount(){
+    this.setState({loading: false});
+}
 
     onUpdateSearch(term) {
-        this.setState({term:this.props.onUpdateSearch});
+        console.log(1);
+        this.setState({term:this.props.onUpdateSearch,loading: false});
     }
 
- ProdItem(arr){
-
- }
+    componentDidCatch() {
+        this.setState({
+            error: true
+        })
+    }
 
     render() {
+        if (this.state.error) {
+            return <ErrorMessege/>
+        }
+        if (this.state.loading) {
+            return <Spinner/>
+        }
         const {data,term} = this.state;
 
         if(this.props.onUpdateSearch.length !== this.state.term.length){

@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import '../LookFor/sass/style.sass'
 import FooterPart from '../FooterPart/index'
 import GotItem from '../Services/gotCoffee'
-
+import Spinner from '../Spinner'
+import ErrorMessege from '../errorMessege';
 
 import logoBlack from '../LookFor/logo/Beans_logo_dark.svg';
 
@@ -21,13 +22,26 @@ export default class MainPage extends Component {
         super(props);
         this.state = {
             data: this.DataMy.getAllbestsellers(),
+            loading: true,
+            error: false
         };
     }
-
-
+    componentDidCatch() {
+        this.setState({
+            error: true
+        })
+    }
+    componentDidMount(){
+        this.setState({loading: false});
+    }
 
     render() {
-
+        if (this.state.loading) {
+            return <Spinner/>
+        }
+        if (this.state.error) {
+            return <ErrorMessege/>
+        }
         return (
             <>
             <div className="preview">
@@ -97,7 +111,7 @@ export default class MainPage extends Component {
                                         src={this.state.data[0].url}
                                         alt="coffee"/>
                                     <div className="best__item-title">
-                                        ${this.state.data[0].name}
+                                        {this.state.data[0].name}
                                     </div>
                                     <div className="best__item-price">{this.state.data[0].price}</div>
                                     </Link>
@@ -108,7 +122,7 @@ export default class MainPage extends Component {
                                         src={this.state.data[1].url}
                                         alt="coffee"/>
                                     <div className="best__item-title">
-                                        ${this.state.data[1].name}
+                                        {this.state.data[1].name}
                                     </div>
                                     <div className="best__item-price">{this.state.data[1].price}</div>
                                     </Link>

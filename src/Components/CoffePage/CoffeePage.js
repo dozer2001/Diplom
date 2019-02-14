@@ -5,7 +5,8 @@ import FooterPart from '../FooterPart/index'
 import GotItem from '../Services/gotCoffee'
 import CoffeeItem from '../CoffeItem/CoffeeItem'
 import SearchPanel from '../SearchComponent/index'
-import PostStatusFilter from '../FilterComponent/FilterComponent'
+import PostStatusFilter from '../FilterComponent/FilterComponent';
+import ErrorMessege from '../errorMessege';
 
 import logoBlack from './img/Beans_logo_dark.svg'
 import girl from './img/coffee_girl.jpg'
@@ -22,7 +23,8 @@ export default class CoffeePage extends Component {
         this.state = {
             data: this.DataMy.getAllbestsellers(),
             term:'',
-            filter:''
+            filter:'',
+            error: false
         };
         this.onUpdateSearch = this.onUpdateSearch.bind(this);
         this.onFilterSelect = this.onFilterSelect.bind(this);
@@ -31,6 +33,11 @@ export default class CoffeePage extends Component {
         this.setState({term});
 
     }
+    componentDidCatch() {
+        this.setState({
+            error: true
+        })
+    }
     onFilterSelect(filter){
         this.setState({filter});
 
@@ -38,7 +45,9 @@ export default class CoffeePage extends Component {
 
     render() {
 
-
+        if (this.state.error) {
+            return <ErrorMessege/>
+        }
         return (
             <>
             <div className="banner">
