@@ -24,7 +24,6 @@ componentDidMount(){
 }
 
     onUpdateSearch(term) {
-        console.log(1);
         this.setState({term:this.props.onUpdateSearch,loading: false});
     }
 
@@ -49,7 +48,8 @@ componentDidMount(){
 
         return data.map((item,  i ) => {
             const {name, country, url, price} = item;
-            if(item.name.indexOf(term) ){
+
+            if(item.name.toLowerCase().indexOf(term.toLowerCase()) ){
                 return false
             }
             if(this.props.onFilterSelect.length > 0){
